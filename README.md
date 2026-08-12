@@ -38,3 +38,15 @@ The general workflow is therefore:
 2. Navigate to the folder corresponding to the analysis of interest.
 3. Run `data.py` to generate the numerical data required for the analysis and figures.
 4. Run `plot.py` to generate the corresponding plots.
+
+## Model Card
+
+The machine learning analysis uses **Extreme Gradient Boosting (XGBoost)** to identify the dominant meteorological drivers of changes in renewable energy drought intensity, duration and frequency.
+
+- **Model:** XGBoost
+- **Purpose:** Attribution of changes in RED characteristics under 1.5°, 2.0° and 3.0°C global warming levels.
+- **Inputs:** Changes in `uas` (zonal wind), `vas` (meridional wind) and `rsds` (surface downwelling shortwave radiation).
+- **Outputs:** Positive and negative changes in RED intensity, duration and frequency.
+- **Models:** Six XGBoost models were trained, separately for positive and negative changes in each RED characteristic.
+- **Performance:** Mean \(R^2\) values were 0.79 for intensity, 0.62 for duration and 0.78 for frequency.
+- **Interpretation:** Permutation importance and partial dependence analysis were used to assess predictor contributions and relationships.
